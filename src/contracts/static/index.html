@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Contracts</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="static/style.css?v=20260818b">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="row">
+      <a class="home-logo" href="/" aria-label="Go to home"></a>
+      <div class="header-controls">
+        <select id="gov" name="gov" aria-label="Governor selector" class="subnav__select header__select">
+                    <option value="Gonzalez">Jennifer Gonzalez</option>
+                    <option value="Pierluisi">Pedro Pierluisi</option>
+                    <option value="Vazquez">Wanda Vazquez</option>
+                    <option value="Rosello">Ricardo Roselló</option>
+                    <option value="Padilla">García Padilla</option>
+                    <option value="Fortuño">Luis Fortuño</option>
+        </select>
+      </div>
+    </div>
+  </header>
+  <nav class="subnav" aria-label="Section navigation">
+    <div class="subnav__inner">
+      <div class="view-nav" role="group" aria-label="View navigation">
+        <button type="button" class="view-nav__btn is-active" data-view="overview">Governor Overview</button>
+        <button type="button" class="view-nav__btn" data-view="contractors">Contractors</button>
+        <button type="button" class="view-nav__btn" data-view="services">Services</button>
+        <button type="button" class="view-nav__btn" data-view="entidades">Entities</button>
+      </div>
+    </div>
+  </nav>
+
+<main class="grid">
+  <section class="photo card">
+    <div class="photo__updated">
+      <span class="photo__updated-label">Last Updated:</span>
+      <span id="govLatestUpdate" class="photo__updated-value" aria-live="polite">—</span>
+    </div>
+    <div class="photo__content">
+      <img id="govPhoto" alt="photo">
+      <p id="govName" class="photo__name" aria-live="polite"></p>
+    </div>
+  </section>
+  <section id="contractorsView" class="table-full hidden" aria-label="Contractors by Amount">
+    <div class="table-full__header">
+      <h2 class="table-full__title">Contractors</h2>
+      <p class="table-full__subtitle">Contracts organized by contractor.</p>
+    </div>
+    <div id="contractorsFullBody" class="table-full__body">
+      <div class="table-full__status">Select a governor to view the information.</div>
+    </div>
+  </section>
+
+  <section id="overviewView" class="overview-view" aria-label="Governor overview">
+    <!-- Pies: put all pie-cards inside a single .pies-row container -->
+    <div class="pies-row" role="region" aria-label="Top charts">
+      <div class="pie-card">
+        <div id="pie1_title" class="pie-title"></div>
+        <canvas id="pie1" width="320" height="320" aria-label="Cancelled by Service"></canvas>
+        <div id="pie1_legend" class="pie-legend" aria-hidden="false"></div>
+      </div>
+
+      <div class="pie-card">
+        <div id="pie2_title" class="pie-title"></div>
+        <canvas id="pie2" width="320" height="320" aria-label="Amount by Service"></canvas>
+        <div id="pie2_legend" class="pie-legend" aria-hidden="false"></div>
+      </div>
+
+      <div class="pie-card">
+        <div id="pie3_title" class="pie-title"></div>
+        <canvas id="pie3" width="320" height="320" aria-label="Amount by Contractors"></canvas>
+        <div id="pie3_legend" class="pie-legend" aria-hidden="false"></div>
+      </div>
+    </div>
+
+    <section class="table-summary" aria-label="Featured tables">
+      <div class="table-summary__intro">
+        <h2 class="table-summary__title">Top 5</h2>
+      </div>
+      <div id="tableSummaryGrid" class="table-summary-grid" role="list"></div>
+    </section>
+  </section>
+
+  <section id="servicesView" class="table-full hidden" aria-label="Services">
+    <div class="table-full__header">
+      <h2 class="table-full__title">Services</h2>
+      <p class="table-full__subtitle">Contracts organized by service.</p>
+    </div>
+    <div id="servicesFullBody" class="table-full__body">
+      <div class="table-full__status">Select a governor to view the information.</div>
+    </div>
+  </section>
+
+  <section id="entidadesView" class="table-full hidden" aria-label="Entities by Amount">
+    <div class="table-full__header">
+      <h2 class="table-full__title">Entities</h2>
+      <p class="table-full__subtitle">Contracts organized by entity.</p>
+    </div>
+    <div id="entidadesFullBody" class="table-full__body">
+      <div class="table-full__status">Select a governor to view the information.</div>
+    </div>
+  </section>
+</main>
+<script type="module" src="static/main.js"></script>
+</body>
+</html>

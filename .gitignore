@@ -1,0 +1,31 @@
+# Local environments, credentials, and machine-specific settings
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.kdbx
+credentials*.json
+secrets*.json
+.DS_Store
+
+# Generated and downloaded data; never include production datasets/photos
+**/download/
+**/analyzed/
+**/photos/
+*.parquet
+*.sqlite*
+*.db
+*.log
+
+# Python build/test output
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+.coverage
+htmlcov/
